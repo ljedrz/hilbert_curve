@@ -1,0 +1,4 @@
+[[package]]
+name = "hilbert_curve"
+version = "0.1.0"
+
