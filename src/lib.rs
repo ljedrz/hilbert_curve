@@ -8,9 +8,9 @@
 
 use std::mem;
 
-/// Convert a one-dimensional distance `d` to a pair of (`x`, `y`) coordinates.
-pub fn convert_1d_to_2d(d: isize, n: isize) -> (isize, isize) {
-    assert!((n & (n - 1)) == 0, "bound must be a power of 2");
+/// Convert a one-dimensional distance `d` to a pair of (x, y) coordinates.
+pub fn convert_1d_to_2d(d: usize, n: usize) -> (usize, usize) {
+    assert!((n & (n - 1)) == 0, "n must be a power of 2");
     let mut s = 1;
     let mut t = d;
     let (mut x, mut y) = (0, 0);
@@ -29,9 +29,9 @@ pub fn convert_1d_to_2d(d: isize, n: isize) -> (isize, isize) {
     (x, y)
 }
 
-/// Convert a pair of (`x`, `y`) coordinates to a one-dimensional distance.
-pub fn convert_2d_to_1d (x: isize, y: isize, n: isize) -> isize {
-    assert!((n & (n - 1)) == 0, "bound must be a power of 2");
+/// Convert a pair of (x, y) coordinates to a one-dimensional distance.
+pub fn convert_2d_to_1d (x: usize, y: usize, n: usize) -> usize {
+    assert!((n & (n - 1)) == 0, "n must be a power of 2");
     let mut d = 0;
     let mut s = n / 2;
     let (mut x, mut y) = (x, y);
@@ -49,11 +49,11 @@ pub fn convert_2d_to_1d (x: isize, y: isize, n: isize) -> isize {
 }
 
 // Rotate a quadrant
-fn rotate(bound: isize, x: &mut isize, y: &mut isize, rx: isize, ry: isize) {
+fn rotate(n: usize, x: &mut usize, y: &mut usize, rx: usize, ry: usize) {
     if ry == 0 {
         if rx == 1 {
-            *x = bound - 1 - *x;
-            *y = bound - 1 - *y;
+            *x = n.wrapping_sub(1).wrapping_sub(*x);
+            *y = n.wrapping_sub(1).wrapping_sub(*y);
         }
 
         mem::swap(x, y);

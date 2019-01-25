@@ -1,6 +1,6 @@
 [package]
 name = "hilbert_curve"
-version = "0.1.0"
+version = "0.2.0"
 description = "A simple implementation of Hilbert curve mapping algorithms in Rust"
 repository = "https://github.com/ljedrz/hilbert_curve"
 documentation = "https://docs.rs/hilbert_curve"
@@ -8,7 +8,7 @@ readme = "README.md"
 authors = ["ljedrz <ljedrz@gmail.com>"]
 edition = "2018"
 license = "CC0-1.0"
-keywords = ["hilbert", "curve", "mathematics"]
+keywords = ["hilbert", "curve", "mathematics", "fractal"]
 
 [dependencies]
 
